@@ -44,16 +44,16 @@ python drive.py model.h5
 
 ### Model Architecture
 
-1. Data 
+#### Data 
 Image data stored in [image_data] are separated out into left, center and right camera images. Corresponding to this images, steering angles are stored into sample set. For left and right steering a correction factor is added to steering angle value as this is not something obtained from the dataset. During first few runs of the model it was observed that car was steering to left a lot which could be explained due to more of left turns in the simulator track. To mitigate this problem, flipped images for all left, right and center images were added to the sample data with negative steering angles. Using sklearn train_test_split function, training data and validation data were created with 20 percent split.
 
-2. Generator function
+####  Generator function
 Due to limited memory available on the workspace, a generator function was used to process and train images in batches using keras model.fit_generator function.
 
-3. Preprocessing
+####  Preprocessing
 Before the images are fed into the model, they are normalized and are cropped to appropriate size to eliminated non-road features which could cause model to train differently
 
-3. Model Architecture
+####  Model Architecture
 NVIDIA's end to end learning PilotNet (https://developer.nvidia.com/blog/explaining-deep-learning-self-driving-car/) architecture has been used which involves 5 convolutional layers ,3 fully connected layers and output layer giving steering control values. First three convolutional layers with a 2×2 stride and a 5×5 kernel and a non-strided convolution with a 3×3 kernel size in the last two convolutional layers.To introduce non-linearity in convolutional layers, activation function ReLU as it helps in training the model better.
 
 Mean square error is used for loss function instead of cross entropy since it is a regression network and not classification network and for optimizer we are using Adam optimizer.
