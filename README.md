@@ -21,6 +21,7 @@ The goals / steps of this project are the following:
 [flipped_image_data]: ./data/IMG
 
 
+
 As part of the submission, the project includes the following files
 
 #### 1. Project Files
@@ -53,7 +54,7 @@ Due to limited memory available on the workspace, a generator function was used 
 Before the images are fed into the model, they are normalized and are cropped to appropriate size to eliminated non-road features which could cause model to train differently
 
 3. Model Architecture
-NVIDIA's end to end learning PilotNet architecture has been used which involves 5 convolutional layers ,3 fully connected layers and output layer giving steering control values. First three convolutional layers with a 2×2 stride and a 5×5 kernel and a non-strided convolution with a 3×3 kernel size in the last two convolutional layers.To introduce non-linearity in convolutional layers, activation function ReLU as it helps in training the model better.
+NVIDIA's end to end learning PilotNet (https://developer.nvidia.com/blog/explaining-deep-learning-self-driving-car/) architecture has been used which involves 5 convolutional layers ,3 fully connected layers and output layer giving steering control values. First three convolutional layers with a 2×2 stride and a 5×5 kernel and a non-strided convolution with a 3×3 kernel size in the last two convolutional layers.To introduce non-linearity in convolutional layers, activation function ReLU as it helps in training the model better.
 
 Mean square error is used for loss function instead of cross entropy since it is a regression network and not classification network and for optimizer we are using Adam optimizer.
 
